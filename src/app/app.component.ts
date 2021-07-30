@@ -13,12 +13,12 @@ export class AppComponent {
   columnDefs = [
     { field: 'course', sortable: true, filter: true, editable: true },
     { field: 'room', sortable: true, filter: true, editable: true },
-    { field: 'block1', sortable: true, filter: true, editable: true },
-    { field: 'block2', sortable: true, filter: true, editable: true },
-    { field: 'block3', sortable: true, filter: true, editable: true },
-    { field: 'block4', sortable: true, filter: true, editable: true },
-    { field: 'block5', sortable: true, filter: true, editable: true },
-    { field: 'block6', sortable: true, filter: true, editable: true }
+    { field: 'I', sortable: true, filter: true, editable: true },
+    { field: 'II', sortable: true, filter: true, editable: true },
+    { field: 'III', sortable: true, filter: true, editable: true },
+    { field: 'IV', sortable: true, filter: true, editable: true },
+    { field: 'V', sortable: true, filter: true, editable: true },
+    { field: 'VI', sortable: true, filter: true, editable: true }
 ];
 
 rowData: Observable<any[]> | undefined;
@@ -28,6 +28,6 @@ constructor(private http: HttpClient) {
 }
 
 ngOnInit(): void {
-    this.rowData = this.http.get<{course: string, room: number, block1: string, block2: string, block3: string, block4: string, block5: string, block6: string}[]>('/assets/mock-courses.json');
+    this.rowData = this.http.get<{course: string, room: number, I: string, II: string, III: string, IV: string, V: string, VI: string}[]>('/assets/mock-courses.json');
 }
 }
