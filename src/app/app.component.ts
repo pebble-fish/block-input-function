@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import {Observable} from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -19,15 +21,13 @@ export class AppComponent {
     { field: 'block6', sortable: true, filter: true, editable: true }
 ];
 
-  rowData = [
-      { course: 'Toyota', room: 'Celica', block1: 'A1', block2: 'A2', block3:'A3', block4: 'A4', block5: 'B1', block6: 'B2' },
-      { course: 'Toyota', room: 'Celica', block1: 'A1', block2: 'A2', block3:'A3', block4: 'A4', block5: 'B1', block6: 'B2' },
-      { course: 'Toyota', room: 'Celica', block1: 'A1', block2: 'A2', block3:'A3', block4: 'A4', block5: 'B1', block6: 'B2' },
-      { course: 'Toyota', room: 'Celica', block1: 'A1', block2: 'A2', block3:'A3', block4: 'A4', block5: 'B1', block6: 'B2' },
-      { course: 'Toyota', room: 'Celica', block1: 'A1', block2: 'A2', block3:'A3', block4: 'A4', block5: 'B1', block6: 'B2' },
-      { course: 'Toyota', room: 'Celica', block1: 'A1', block2: 'A2', block3:'A3', block4: 'A4', block5: 'B1', block6: 'B2' },
-      { course: 'Toyota', room: 'Celica', block1: 'A1', block2: 'A2', block3:'A3', block4: 'A4', block5: 'B1', block6: 'B2' },
-      { course: 'Toyota', room: 'Celica', block1: 'A1', block2: 'A2', block3:'A3', block4: 'A4', block5: 'B1', block6: 'B2' },
-    ];
+rowData: Observable<any[]> | undefined;
   title: any;
+
+constructor(private http: HttpClient) {
+}
+
+ngOnInit(): void {
+    this.rowData = this.http.get<{course: string, room: number, block1: string, block2: string, block3: string, block4: string, block5: string, block6: string}[]>('/assets/mock-courses.json');
+}
 }
