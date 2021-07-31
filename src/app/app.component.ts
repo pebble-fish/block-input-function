@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
+import { AllCommunityModules, Module } from '@ag-grid-community/all-modules';
+import '@ag-grid-community/all-modules/dist/styles/ag-grid.css';
 
 @Component({
   selector: 'app-root',
@@ -8,26 +10,36 @@ import {Observable} from 'rxjs';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit{
+  private gridApi: any;
+  private gridColumnApi: any;
 
-  columnDefs = [
-    { field: 'course', sortable: true, filter: true, editable: true },
-    { field: 'room', sortable: true, filter: true, editable: true },
-    { field: 'I', sortable: true, filter: true, editable: true },
-    { field: 'II', sortable: true, filter: true, editable: true },
-    { field: 'III', sortable: true, filter: true, editable: true },
-    { field: 'IV', sortable: true, filter: true, editable: true },
-    { field: 'V', sortable: true, filter: true, editable: true },
-    { field: 'VI', sortable: true, filter: true, editable: true }
-];
+  public modules: Module[] = AllCommunityModules;
 
 rowData: Observable<any[]> | undefined;
   title: any;
+  columnDefs: { field: string; }[];
 
-constructor(private http: HttpClient) {
-}
-
-ngOnInit(): void {
+  constructor(private http: HttpClient) {
+    this. columnDefs = [
+      { field: 'course'},
+      { field: 'room'},
+      { field: 'I'},
+      { field: 'II'},
+      { field: 'III'},
+      { field: 'IV'},
+      { field: 'V'},
+      { field: 'VI'}
+  ];
+  }
+  ngOnInit(): void {
     this.rowData = this.http.get<{course: string, room: number, I: string, II: string, III: string, IV: string, V: string, VI: string}[]>('/assets/mock-courses.json');
-}
+  }
+
+defaultColDef = {
+    flex: 1,
+    minWidth: 100,
+    editable: true
+  };
+
 }
