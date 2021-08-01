@@ -17,8 +17,8 @@ export class AppComponent implements OnInit{
   public modules: Module[] = AllCommunityModules;
 
 rowData: Observable<any[]> | undefined;
-  title: any;
-  columnDefs: { field: string; }[];
+title: any;
+columnDefs: { field: string; }[];
 
   constructor(private http: HttpClient) {
     this.columnDefs = [
@@ -34,13 +34,12 @@ rowData: Observable<any[]> | undefined;
 
   const defaultColDef = {
     flex: 1,
-    minWidth: 100,
-    editable: true
+    minWidth: 100
   };
 
   }
   ngOnInit(): void { 
-    this.rowData = this.http.get<{course: string, room: number, I: string, II: string, III: string, IV: string, V: string, VI: string}[]>('/assets/mock-courses.json');
+    this.rowData = this.http.get<any[]>('/assets/mock-courses.json');
   };
 
 
