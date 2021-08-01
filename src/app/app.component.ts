@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Observable} from 'rxjs';
+import {AgGridAngular} from 'ag-grid-angular';
 import { AllCommunityModules, Module } from '@ag-grid-community/all-modules';
 import '@ag-grid-community/all-modules/dist/styles/ag-grid.css';
 
@@ -11,6 +12,7 @@ import '@ag-grid-community/all-modules/dist/styles/ag-grid.css';
 })
 
 export class AppComponent implements OnInit{
+  @ViewChild('agGrid') agGrid: AgGridAngular | undefined;
   private gridApi: any;
   private gridColumnApi: any;
   private defaultColDefs: any;
@@ -18,7 +20,17 @@ export class AppComponent implements OnInit{
 
 rowData: Observable<any[]> | undefined;
 title: any;
-columnDefs: { field: string; }[];
+
+defaultColDef = {
+  flex: 1,
+  minWidth: 100,
+  editable: true,
+  sortable: true,
+  filter: true,
+  checkboxSelection: true
+};
+
+columnDefs: { field: string;}[];
 
   constructor(private http: HttpClient) {
     this.columnDefs = [
@@ -32,16 +44,10 @@ columnDefs: { field: string; }[];
       { field: 'VI'}
   ];
 
-  const defaultColDef = {
-    flex: 1,
-    minWidth: 100
-  };
-
   }
   ngOnInit(): void { 
     this.rowData = this.http.get<any[]>('/assets/mock-courses.json');
   };
 
-
-
 }
+

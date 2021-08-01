@@ -1,10 +1,14 @@
+
 <ag-grid-angular
     style="width: 1550px; height: 500px;"
     class="ag-theme-alpine"
     [rowData]="rowData | async"
     [columnDefs]="columnDefs"
+    [defaultColDef]="defaultColDef"
     rowSelection="multiple"
+    [rowData]="rowData"
 >
 </ag-grid-angular> 
+
 <button>submit</button>
 <button>cancel</button>
