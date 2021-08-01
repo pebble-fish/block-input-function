@@ -13,7 +13,7 @@ import '@ag-grid-community/all-modules/dist/styles/ag-grid.css';
 export class AppComponent implements OnInit{
   private gridApi: any;
   private gridColumnApi: any;
-
+  private defaultColDefs: any;
   public modules: Module[] = AllCommunityModules;
 
 rowData: Observable<any[]> | undefined;
@@ -21,7 +21,7 @@ rowData: Observable<any[]> | undefined;
   columnDefs: { field: string; }[];
 
   constructor(private http: HttpClient) {
-    this. columnDefs = [
+    this.columnDefs = [
       { field: 'course'},
       { field: 'room'},
       { field: 'I'},
@@ -31,15 +31,18 @@ rowData: Observable<any[]> | undefined;
       { field: 'V'},
       { field: 'VI'}
   ];
-  }
-  ngOnInit(): void {
-    this.rowData = this.http.get<{course: string, room: number, I: string, II: string, III: string, IV: string, V: string, VI: string}[]>('/assets/mock-courses.json');
-  }
 
-defaultColDef = {
+  const defaultColDef = {
     flex: 1,
     minWidth: 100,
     editable: true
   };
+
+  }
+  ngOnInit(): void { 
+    this.rowData = this.http.get<{course: string, room: number, I: string, II: string, III: string, IV: string, V: string, VI: string}[]>('/assets/mock-courses.json');
+  };
+
+
 
 }

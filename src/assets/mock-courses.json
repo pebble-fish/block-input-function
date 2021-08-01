@@ -1,6 +1,6 @@
 [
 	{
-		"course": "Toyota",
+		"course": "Random Class",
 		"room": 123,
 		"I": "A1",
 		"II": "A2",
@@ -10,7 +10,7 @@
 		"VI": "B2"
 	},
 	{
-		"course": "Toyota",
+		"course": "Random Class",
 		"room": 123,
 		"I": "A1",
 		"II": "A2",
@@ -20,7 +20,7 @@
 		"VI": "B2"
 	},
 	{
-		"course": "Toyota",
+		"course": "Random Class",
 		"room": 123,
 		"I": "A1",
 		"II": "A2",
@@ -30,7 +30,7 @@
 		"VI": "B2"
 	},
 	{
-		"course": "Toyota",
+		"course": "Random Class",
 		"room": 123,
 		"I": "A1",
 		"II": "A2",
@@ -40,7 +40,7 @@
 		"VI": "B2"
 	},
 	{
-		"course": "Toyota",
+		"course": "Random Class",
 		"room": 123,
 		"I": "A1",
 		"II": "A2",
@@ -50,7 +50,7 @@
 		"VI": "B2"
 	},
 	{
-		"course": "Toyota",
+		"course": "Random Class",
 		"room": 123,
 		"I": "A1",
 		"II": "A2",
@@ -60,7 +60,7 @@
 		"VI": "B2"
 	},
 	{
-		"course": "Toyota",
+		"course": "Random Class",
 		"room": 123,
 		"I": "A1",
 		"II": "A2",
@@ -70,7 +70,17 @@
 		"VI": "B2"
 	},
 	{
-		"course": "Toyota",
+		"course": "Random Class",
+		"room": 123,
+		"I": "A1",
+		"II": "A2",
+		"III": "A3",
+		"IV": "A4",
+		"V": "B1",
+		"VI": "B2"
+	},
+	{
+		"course": "Random Class",
 		"room": 123,
 		"I": "A1",
 		"II": "A2",
