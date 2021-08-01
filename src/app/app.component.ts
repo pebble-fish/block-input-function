@@ -27,22 +27,20 @@ defaultColDef = {
   editable: true,
   sortable: true,
   filter: true,
-  checkboxSelection: true
 };
 
-columnDefs: { field: string;}[];
+columnDefs = [
+  { field: 'course', checkboxSelection: true},
+  { field: 'room'},
+  { field: 'I'},
+  { field: 'II'},
+  { field: 'III'},
+  { field: 'IV'},
+  { field: 'V'},
+  { field: 'VI'}
+]
 
   constructor(private http: HttpClient) {
-    this.columnDefs = [
-      { field: 'course'},
-      { field: 'room'},
-      { field: 'I'},
-      { field: 'II'},
-      { field: 'III'},
-      { field: 'IV'},
-      { field: 'V'},
-      { field: 'VI'}
-  ];
 
   }
   ngOnInit(): void { 
@@ -50,4 +48,3 @@ columnDefs: { field: string;}[];
   };
 
 }
-
